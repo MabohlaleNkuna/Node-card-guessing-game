@@ -1,0 +1,132 @@
+/* styles.css */
+
+body {
+    display: flex;
+    background-color: black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+  }
+  
+  h1 {
+    margin-top: 150px;
+    margin-bottom: 20px;
+    color: aqua;
+    font-weight: 300;
+  }
+  
+  .game-board {
+    display: grid;
+    grid-template-columns: repeat(8, 100px); /* 8 cards per row */
+    grid-gap: 30px;
+  }
+  
+  .card {
+    border-radius: 15px;
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    cursor: pointer;
+    position: relative;
+    margin: 0vmax;
+  }
+  
+  .card .front,
+  .card .back {
+    position: absolute;
+    transition: transform 0.7s;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+  }
+  
+  .card .front {
+    background-color: aqua;
+    transform: rotateY(180deg);
+  }
+  
+  .card .back {
+    background-color: aquamarine;
+  }
+  
+  .card.flipped-card .front {
+    transform: rotateY(0);
+  }
+  
+  .card.flipped-card .back {
+    transform: rotateY(180deg);
+  }
+  
+  @media screen and (max-width: 768px) {
+    body {
+      padding-bottom: 50px;
+    }
+  
+    h1 {
+      margin-top: 50px;
+    }
+  
+    .game-board {
+      grid-template-columns: repeat(4, 100px); /* 4 cards per row on medium screens */
+      grid-gap: 30px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    body {
+      height: auto;
+      padding-bottom: 70px;
+    }
+  
+    .game-board {
+      grid-template-columns: repeat(2, 100px); /* 2 cards per row on small screens */
+      grid-gap: 30px;
+    }
+  }
+  
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-content {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
