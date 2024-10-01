@@ -1,13 +1,11 @@
-/* styles.css */
-
 body {
     display: flex;
-    background-color: black;
+    background-color: #2c3e50;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100vw;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     overflow-x: hidden;
     padding: 0;
     margin: 0;
@@ -16,13 +14,13 @@ body {
   h1 {
     margin-top: 150px;
     margin-bottom: 20px;
-    color: aqua;
+    color: #ecf0f1;
     font-weight: 300;
   }
   
   .game-board {
     display: grid;
-    grid-template-columns: repeat(8, 100px); /* 8 cards per row */
+    grid-template-columns: repeat(8, 100px); 
     grid-gap: 30px;
   }
   
@@ -30,7 +28,7 @@ body {
     border-radius: 15px;
     width: 100px;
     height: 100px;
-    background-color: #ccc;
+    background-color: #8e44ad;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,12 +52,13 @@ body {
   }
   
   .card .front {
-    background-color: aqua;
+    background-color: #4206e6;
     transform: rotateY(180deg);
+    font-family: 'Courier New', Courier, monospace;
   }
   
   .card .back {
-    background-color: aquamarine;
+    background-color: #16a085;
   }
   
   .card.flipped-card .front {
@@ -80,7 +79,7 @@ body {
     }
   
     .game-board {
-      grid-template-columns: repeat(4, 100px); /* 4 cards per row on medium screens */
+      grid-template-columns: repeat(4, 100px); 
       grid-gap: 30px;
     }
   }
@@ -92,7 +91,7 @@ body {
     }
   
     .game-board {
-      grid-template-columns: repeat(2, 100px); /* 2 cards per row on small screens */
+      grid-template-columns: repeat(2, 100px); 
       grid-gap: 30px;
     }
   }

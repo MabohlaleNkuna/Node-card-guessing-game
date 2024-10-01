@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let startTime;
     let timerInterval;
 
-    // Timer start logic
     function startTimer() {
         startTime = new Date();
         timerInterval = setInterval(() => {
@@ -25,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 
-    // Timer stop logic
     function stopTimer() {
         clearInterval(timerInterval);
     }
@@ -33,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const congratsPopup = document.createElement('div');
     congratsPopup.id = 'congratsPopup';
     congratsPopup.classList.add('popup');
-    congratsPopup.innerHTML = `
-        <div class="popup-content">
+    congratsPopup.innerHTML = 
+        `<div class="popup-content">
             <h2>Congratulations!</h2>
             <p>You've matched all the cards!</p>
             <button id="playAgain">Play Again</button>
@@ -53,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = document.createElement('div');
         card.classList.add('card');
         card.innerHTML =
-            '<div class="front" style="color: blue;">' + x + '</div>' +
-            '<div class="back" style="color: aqua;">&#128512;</div>';
+            `<div class="front" style="color: #FF8C00;">${x}</div>` +
+            `<div class="back" style="font-size: 50px;">&#128175;</div>`;
 
         card.addEventListener('click', flipCard);
         return card;
@@ -98,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resettingGame();
         if (matchedPairs === totalPairs) {
             setTimeout(showCongratsMessage, 500);
-            stopTimer(); // Stop the timer when all pairs are matched
+            stopTimer();
         }
     }
 
