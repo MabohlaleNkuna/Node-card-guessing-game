@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => { 
     const gameBoard = document.getElementById('gameBoard');
     const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P'];
     const cards = [];
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let startTime;
     let timerInterval;
+    let highScore = null;
 
     function startTimer() {
         startTime = new Date();
@@ -97,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (matchedPairs === totalPairs) {
             setTimeout(showCongratsMessage, 500);
             stopTimer();
+            checkHighScore();
         }
     }
 
@@ -127,6 +129,39 @@ document.addEventListener('DOMContentLoaded', () => {
             gameBoard.appendChild(card);
         });
         startTimer(); 
+        fetchHighScore();
+    }
+
+    function fetchHighScore() {
+        fetch('/scores')
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    const sortedScores = data.sort((a, b) => a.time - b.time);
+                    highScore = sortedScores[0];
+                    document.getElementById('highScore').textContent = `High Score: ${highScore.username} - ${highScore.time}s`;
+                }
+            });
+    }
+
+    function checkHighScore() {
+        const elapsedTime = Math.floor((new Date() - startTime) / 1000);
+        if (!highScore || elapsedTime < highScore.time) {
+            const username = prompt('New High Score! Enter your name:');
+            if (username) {
+                saveScore(username, elapsedTime);
+            }
+        }
+    }
+
+    function saveScore(username, time) {
+        fetch('/save-score', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, time })
+        }).then(() => {
+            fetchHighScore();
+        });
     }
 
     initialiseGame();

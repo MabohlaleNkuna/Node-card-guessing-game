@@ -4,16 +4,12 @@ const fs = require('fs');
 const app = express();
 const port = 3000;
 
-
 app.set('view engine', 'ejs');
-
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 app.get('/', (req, res) => {
   res.render('index');
 });
-
 
 app.get('/scores', (req, res) => {
   const scoresPath = path.join(__dirname, 'data', 'scores.json');
@@ -25,7 +21,6 @@ app.get('/scores', (req, res) => {
   });
 });
 
-// Save a new high score
 app.post('/save-score', express.json(), (req, res) => {
   const { username, time } = req.body;
   const scoresPath = path.join(__dirname, 'data', 'scores.json');
