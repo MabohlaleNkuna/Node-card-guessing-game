@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = document.createElement('div');
         card.classList.add('card');
         card.innerHTML =
-            `<div class="front" style="color: #FF8C00;">${x}</div>` +
+            `<div class="front" style="color:#006b56;">${x}</div>` +
             `<div class="back" style="font-size: 50px;">&#128175;</div>`;
 
         card.addEventListener('click', flipCard);
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (data.length > 0) {
                     const sortedScores = data.sort((a, b) => a.time - b.time);
                     highScore = sortedScores[0];
-                    document.getElementById('highScore').textContent = `High Score: ${highScore.username} - ${highScore.time}s`;
+                    document.getElementById('highScore').textContent = `High Score: 🏆 ${highScore.username} - ${highScore.time}s`;
                 }
             });
     }
