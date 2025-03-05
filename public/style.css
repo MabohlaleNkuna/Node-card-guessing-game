@@ -51,6 +51,7 @@ body {
   display: grid;
   grid-template-columns: repeat(8, 100px); 
   grid-gap: 30px;
+  margin-left: 15px;
 }
 
 .card {
@@ -64,6 +65,7 @@ body {
   font-size: 60px;
   cursor: pointer;
   position: relative;
+  margin: 5px;
   font-weight: bold;
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8);
 }
@@ -116,17 +118,6 @@ body {
   }
 }
 
-@media screen and (max-width: 480px) {
-  body {
-    height: auto;
-    padding-bottom: 70px;
-  }
-
-  .game-board {
-    grid-template-columns: repeat(2, 100px); 
-    grid-gap: 30px;
-  }
-}
 
 .popup {
   display: none;
@@ -172,27 +163,51 @@ button:hover {
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 510px) {
-  body {
-    padding-left: 10px; 
-    padding-right: 10px; 
-  }
-
-  h1 {
-    margin-left: 20px; 
-    margin-right: 20px;
-  }
-
+@media screen and (max-width: 768px) {
   .game-board {
-    grid-template-columns: repeat(2, 100px); 
+    grid-template-columns: repeat(4, 80px); 
     grid-gap: 20px;
-    margin-left: 60px; 
-    margin-right: 20px;
+  }
+
+  .card {
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .game-board {
+    grid-template-columns: repeat(4, 1fr); 
+    grid-gap: 3px;
+  }
+  h1 {
+    font-size: 40px !important;
+  }
+  .card {
+    width: 30px;
+    height: 30px;
+    font-size: 5px; 
+    padding: 5px;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+  
+  }
+  .card .back{
+    width: 20px;
+    height: 20px;
+    padding: 15px;
+    margin: 50px;
+    
+  }
+
+}
+
 
 .card:hover {
   transform: scale(1.2);
   box-shadow: 6px 6px 15px rgba(0, 107, 86, 0.8);
 }
+
 
