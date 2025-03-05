@@ -53,11 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
         card.classList.add('card');
         card.innerHTML =
             `<div class="front" style="color:#006b56;">${x}</div>` +
-            `<div class="back" style="font-size: 40px;">&#128175;</div>`;
-
+            `<div class="back" style="font-size: 40px; color: #eb05ebf1;">&#128175;</div>`;  
+    
         card.addEventListener('click', flipCard);
         return card;
     }
+    
 
     function rearrange(container) {
         for (let i = container.length - 1; i > 0; i--) {
